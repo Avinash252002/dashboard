@@ -1,15 +1,15 @@
 
 import Layout from "./Layout";
 import "./App.css";
-import { Typography } from "@mui/material";
+import DashBoard from "./Dashboard";
+
 
 
 function App() {
   
   return (
     <Layout>
-      <h2 style={{fontWeight : "500"}}>Dashboard</h2>
-
+      <DashBoard/>
     </Layout>
   );
 }

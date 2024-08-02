@@ -9,24 +9,34 @@ const Layout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
       <Box sx={{ position: "sticky", top: 0, zIndex: 1000, width: "100%" }}>
         <Navbar />
       </Box>
-<Box sx={{ display: "flex" , flexDirection : "row" }}>
-      <Box
-        sx={{
-          position: "sticky",
-          top: "72px", // Adjust to match the height of the header or navbar
-          left: 0,
-          zIndex: 999,
-          height: "calc(100vh - 72px)", // Full viewport height minus the header height
-          minWidth : "fit-content",
-          overflow: "hidden",
-        }}
-      >
-        <Sidebar />
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Box
+          sx={{
+            position: "sticky",
+            top: "72px", // Adjust to match the height of the header or navbar
+            left: 0,
+            zIndex: 999,
+            height: "calc(100vh - 72px)", // Full viewport height minus the header height
+            minWidth: "fit-content",
+            overflow: "hidden",
+          }}
+        >
+          <Sidebar />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            py: 3,
+            px: 2,
+            bgcolor: "#141316",
+            color: "white",
+            width: "100%",
+          }}
+        >
+          {children}
+        </Box>
       </Box>
-      <Box sx={{ display: "flex" , flexDirection : "column" , py : 3, px : 2, bgcolor : "#141316" , color : "white" , width : "100%" }}>{children}</Box>
-
-      </Box>
-
     </Box>
   );
 };

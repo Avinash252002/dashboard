@@ -1,16 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
+import DashBoard from "./Dashboard";
 
 
    export const router = createBrowserRouter([
    
       {
         path: "/",
-        element: < ></>,
+        element:  <DashBoard/>
       },
       {
         path: "/analytics",
-        element: < ></>,
+        element: <></>,
 
 
       },
