@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   Box,
   Table,
@@ -74,8 +74,8 @@ const rows = [
 ];
 
 const RecentOrders = () => {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+
 
   return (
     <Box
@@ -267,7 +267,7 @@ const RecentOrders = () => {
             </TableHead>
             <TableBody>
               {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+
                 .map((row) => {
                   return (
                     <TableRow

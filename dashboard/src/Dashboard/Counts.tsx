@@ -5,10 +5,7 @@ import {
 
   LocalMallRounded,
   LuggageRounded,
-  MonetizationOn,
-  Person,
-  Receipt,
-  Search,
+
 } from "@mui/icons-material";
 import { Box, IconButton, Typography } from "@mui/material";
 

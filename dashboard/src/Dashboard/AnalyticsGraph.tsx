@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, FormControl, Select, MenuItem, Typography } from "@mui/material";
+
+import { Box, FormControl, Select, MenuItem } from "@mui/material";
 
 const AnalyticsGraph = () => {
   return (

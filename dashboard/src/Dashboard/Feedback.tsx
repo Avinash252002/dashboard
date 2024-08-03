@@ -1,6 +1,6 @@
-import React from "react";
+
 import { Avatar, Box, Divider, Rating, Typography } from "@mui/material";
-import { StarBorderRounded, StarRateRounded } from "@mui/icons-material";
+import {  StarRateRounded } from "@mui/icons-material";
 
 const Feedback = () => {
   const data = [

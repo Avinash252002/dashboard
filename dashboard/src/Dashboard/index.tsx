@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import React from "react";
+
 import Counts from "./Counts";
 import ProfitView from "./ProfitView";
 import Categories from "./Categories";
