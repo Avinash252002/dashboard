@@ -113,7 +113,7 @@ const Counts = () => {
             gap={1}
           >
             <Typography variant="h5" fontFamily={"poppins"} fontWeight={"bold"}>
-              {item.id == 4 ? "$" : ""} {item.count} {item.id == 4 ? "k" : ""}
+              {item.id == 4 ? "$" : item.id == 3 && "0"}{item.count} {item.id == 4 ? "k" : ""}
             </Typography>
             <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>
               {item.increase ? (

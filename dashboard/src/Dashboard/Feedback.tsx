@@ -49,7 +49,7 @@ const Feedback = () => {
         flexDirection={"column"}
         gap={1}
         overflow={"auto"}
-        height={"200px"}
+        height={"250px"}
       >
         {data.map((item, index) => (
           <Box key={index} display={"flex"} flexDirection={"column"} gap={1}>

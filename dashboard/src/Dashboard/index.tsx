@@ -5,6 +5,7 @@ import ProfitView from "./ProfitView";
 import Categories from "./Categories";
 import AnalyticsGraph from "./AnalyticsGraph";
 import Feedback from "./Feedback";
+import RecentOrders from "./RecentOrders";
 
 const DashBoard = () => {
   return (
@@ -21,7 +22,7 @@ const DashBoard = () => {
       </Box>
 
       <Box display={"flex"} gap={3} flexDirection={"row"} width={"100%"}>
-        <AnalyticsGraph />
+        <RecentOrders />
         <Feedback />
       </Box>
     </Box>
