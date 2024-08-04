@@ -51,6 +51,7 @@ const ProfitView = () => {
               offsetY: 0,
               color: "grey",
               formatter: function (val: any) {
+                console.log(val)
                 return "Goal Completed";
               },
             },
