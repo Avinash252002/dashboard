@@ -72,9 +72,10 @@ const Counts = () => {
   return (
     <Box
       display={"flex"}
-      flexDirection={"row"}
+      flexDirection={{ xs: "column", md : "row" }}
       gap={2}
-      width={"65%"}
+      width={{xs : "100%" ,   lg : "65%"}}
+      // flexWrap={"wrap"}
       justifyContent={"space-between"}
     >
       {data.map((item, index) => (
@@ -82,13 +83,17 @@ const Counts = () => {
           key={index}
           display={"flex"}
           bgcolor={"#1f2029"}
-          flexDirection={"column"}
-          width={"25%"}
+          flexDirection={{xs : "row" , md : "column" }}
+          flexWrap={"wrap"}
+          position={"relative"}
+          justifyContent={"space-between"}
+          alignItems={"flex-start"}
+          width={{xs : "93%" , md : "25%"}}
           gap={2}
           p={2}
           borderRadius={"8px"}
         >
-          <Box display={"flex"} flexDirection={"column"} gap={1}>
+          <Box display={"flex"} flexDirection={"column"}  gap={1}>
             <Box display={"flex"} flexDirection={"row"}>
               <IconButton
                 sx={{ bgcolor: item.iconButtonColor, borderRadius: "8px" , ":hover" : {
@@ -112,7 +117,7 @@ const Counts = () => {
             <Typography variant="h5" fontFamily={"poppins"} fontWeight={"bold"}>
               {item.id == 4 ? "$" : item.id == 3 && "0"}{item.count} {item.id == 4 ? "k" : ""}
             </Typography>
-            <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>
+            <Box display={"flex"} flexDirection={"row"} alignItems={"center"} position={"absolute"} right={20} bottom={{xs : 10 , md : 15}}>
               {item.increase ? (
                 <item.increaseIcon sx={{ color: item.increaseIconColor }} />
               ) : (

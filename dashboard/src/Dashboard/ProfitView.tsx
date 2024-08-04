@@ -71,7 +71,8 @@ const ProfitView = () => {
       display={"flex"}
       bgcolor={"#1f2029"}
       flexDirection={"row"}
-      width={"30%"}
+      flexWrap={"wrap"}
+      width={{xs : "93%" , md : "46%" , lg : "30%"}}
       p={2}
       pb={2.2}
       justifyContent={"space-between"}
@@ -114,7 +115,7 @@ const ProfitView = () => {
           }}
         >
           <ApexCharts
-            options={chartOptions.options}
+            options={chartOptions.options as any}
             series={chartOptions.series}
             type="radialBar"
           />

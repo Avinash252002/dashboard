@@ -64,7 +64,7 @@ const Sidebar = () => {
     >
 
 
-      <Box display={"flex"} flexDirection={"column"} >
+      <Box display={"flex"} flexDirection={{ xs: "row", md: "column"}} justifyContent={"space-between"} >
       {routes.map((route, index) => (
         <Box
           key={index}
@@ -77,11 +77,11 @@ const Sidebar = () => {
             "&::before": {
               content: '""',
               position: "absolute",
-              left: 0,
-              top: "50%", // Position it vertically centered
-              transform: "translateY(-50%)", // Adjust for correct centering
-              width: "3px", // Width of the border
-              height: "50%", // Adjust height as needed (50% of the container height)
+              left: {xs : "25%" , md : "0"},
+              top:{xs : "100%" , md : "50%"} , // Position it vertically centered
+              transform: {xs : "translateX(0%)" , md : "translateY(-50%)"} , // Adjust for correct centering
+              width: {xs : "50%" , md : "3px"}, // Width of the border
+              height: {xs : "3px" , md : "50%"}, // Adjust height as needed (50% of the container height)
               bgcolor: currentPath === route.path ? "#7092EC" : "transparent",
               transition: "all 1s ease",
             },
@@ -104,6 +104,7 @@ const Sidebar = () => {
       <IconButton
 
             sx={{
+              display : {xs : "none" , md : "flex"},
               position : "absolute",
               bottom : 30,
               left : "25%",

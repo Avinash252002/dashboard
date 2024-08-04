@@ -5,8 +5,27 @@ import {
   EmailOutlined,
 } from "@mui/icons-material";
 import { Avatar, Badge, Box, IconButton, TextField } from "@mui/material";
+import { useState } from "react";
 
 const Navbar = () => {
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  // Open the popover
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  // Close the popover
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  // Determine if the popover is open
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+
   return (
     <Box
       display={"flex"}
@@ -27,10 +46,10 @@ const Navbar = () => {
           size="small"
           placeholder="Search"
           sx={{
-            width: "250px", 
+            width:  {xs : "150px", sm: "250px"}, 
             transition: "width 0.3s ease", 
             "&:focus-within": {
-              width: "350px",
+              width: {xs : "200px", sm: "350px"}, 
             },
             "& .MuiInputBase-root": {
               backgroundColor: "#282b2f", 
@@ -58,6 +77,7 @@ const Navbar = () => {
       <Box display={"flex"} alignItems={"center"} gap={3}>
         <IconButton
           sx={{
+            display: { xs: "none", sm: "flex" },
             bgcolor: "#43464b",
             ":hover": {
               bgcolor: "#616161",
@@ -68,6 +88,8 @@ const Navbar = () => {
         </IconButton>
         <IconButton
           sx={{
+            display: { xs: "none", sm : "flex" },
+
             bgcolor: "#43464b",
 
             ":hover": {
@@ -104,6 +126,28 @@ const Navbar = () => {
         </IconButton>
 
         <Avatar src="https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=800" sx = {{cursor : "pointer"}} />
+
+        <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Box sx={{ p: 2 }}>
+          <Typography variant="h6">Popover Content</Typography>
+          <Typography variant="body1">
+            This is the content inside the popover.
+          </Typography>
+        </Box>
+      </Popover>
       </Box>
     </Box>
   );

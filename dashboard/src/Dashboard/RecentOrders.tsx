@@ -83,7 +83,8 @@ const RecentOrders = () => {
       flexDirection={"column"}
       bgcolor={"#1f2029"}
       gap={2}
-      width={"62.7%"}
+      width={{ xs: "93%" , md : "100%" , lg : "62.7%"}}
+
       p={2}
       borderRadius={"8px"}
     >

@@ -38,7 +38,8 @@ const Categories = () => {
       display={"flex"}
       bgcolor={"#1f2029"}
       flexDirection={"column"}
-      width={"30%"}
+      width={{xs : "93%", md : "100%" , lg: "30%"}}
+
       gap={2}
       p={2}
       justifyContent={"space-between"}
