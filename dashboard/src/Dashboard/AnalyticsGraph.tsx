@@ -1,7 +1,9 @@
 
 import { Box, FormControl, Select, MenuItem } from "@mui/material";
+import React from "react";
 
 const AnalyticsGraph = () => {
+  const [value, setValue] = React.useState<number>(10);
   return (
     <Box
       display={"flex"}
@@ -22,7 +24,8 @@ const AnalyticsGraph = () => {
         <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
           <Select
             size="small"
-            label="Age"
+            value={value}
+            onChange={(e) => setValue(Number(e.target.value))}
             sx={{
               height: "30px",
               width: "100px",
