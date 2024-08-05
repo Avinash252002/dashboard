@@ -73,7 +73,7 @@ const ProfitView = () => {
       bgcolor={"#1f2029"}
       flexDirection={"row"}
       flexWrap={"wrap"}
-      width={{xs : "93%" , md : "46%" , lg : "30%"}}
+      width={{xs : "82%" , md : "46%" , lg : "30%"}}
       p={2}
       pb={2.2}
       justifyContent={"space-between"}

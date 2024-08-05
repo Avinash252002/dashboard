@@ -88,7 +88,7 @@ const Counts = () => {
           position={"relative"}
           justifyContent={"space-between"}
           alignItems={"flex-start"}
-          width={{xs : "93%" , md : "25%"}}
+          width={{xs : "82%" , md : "25%"}}
           gap={2}
           p={2}
           borderRadius={"8px"}

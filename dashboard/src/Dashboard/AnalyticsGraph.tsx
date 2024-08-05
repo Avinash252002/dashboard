@@ -123,7 +123,7 @@ const AnalyticsGraph = () => {
       display={"flex"}
       flexDirection={"column"}
       gap={2}
-      width={{ xs: "93%" , md : "100%" ,  lg : "62.7%"}}
+      width={{ xs: "82%" , md : "100%" ,  lg : "62.7%"}}
       bgcolor={"#1f2029"}
       p={2}
       borderRadius={"8px"}

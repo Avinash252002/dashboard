@@ -9,7 +9,7 @@ import RecentOrders from "./RecentOrders";
 
 const DashBoard = () => {
   return (
-    <Box display={"flex"} flexDirection={"column"} color={"#fff"} gap={3} >
+    <Box display={"flex"} flexDirection={"column"} color={"#fff"} gap={3} width={"100%"}>
       <h2 style={{ fontWeight: "500" }}>Dashboard</h2>
       <Box display={"flex"} gap={3} flexDirection={{xs : "column" , md : "row"}} flexWrap={"wrap"} width={"100%"}>
         <Counts />
