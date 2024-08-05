@@ -17,7 +17,7 @@ const Layout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           width: "100%",
         }}
       >
-        <Navbar />
+        {/* <Navbar /> */}
       </Box>
 
       <Box sx={{ display: "flex", flexDirection: "row" }}>
