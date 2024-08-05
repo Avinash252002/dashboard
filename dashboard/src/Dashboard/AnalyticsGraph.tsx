@@ -11,7 +11,7 @@ const AnalyticsGraph = () => {
   const chartOptions = {
     series: [{
       name: 'Goal Completed',
-      data: [49 , 40, 30, 20, 30, 20, 30, 40, 60, 20],
+      data: [55 , 45, 35, 25, 35, 25, 35, 45, 60, 20 , 20 , 20 , 20 , 20 , 20 , 35, 25, 35, 45, 60, ],
 
 
     }],
@@ -26,7 +26,7 @@ const AnalyticsGraph = () => {
       plotOptions: {
         bar: {
           borderRadius: 13,
-          columnWidth: '40%',
+          columnWidth: '65%',
           endingShape: 'rounded',
           dataLabels: {
             position: 'top', // top, center, bottom
@@ -50,7 +50,7 @@ const AnalyticsGraph = () => {
       },
       
       xaxis: {
-        categories: [5 , 10, 15, 20, 25, 30, 35, 40, 45, 50 , 60],
+        categories: [5 , 10, 15, 20, 25, 30, 35, 40, 45, 50 , 60 , 70 , 80 , 90 , 100 , 110 , 120 , 130 , 140 , 150],
         tickPlacement: 'on',
         position: 'bottom',
         labels: {
@@ -70,10 +70,12 @@ const AnalyticsGraph = () => {
         tooltip: {
           enabled: true,
           offsetY: -35,
+          
           style: {
             fontSize: '12px',
             fontFamily: 'Poppins',
-            color: 'gray'
+            color: 'gray',
+
           }
           
         }
@@ -97,7 +99,7 @@ const AnalyticsGraph = () => {
             fontFamily: 'Poppins'
           },
           formatter: function (val : number) {
-            return val / 10 + "K";
+            return val / 10 + " K";
           }
         }
         
