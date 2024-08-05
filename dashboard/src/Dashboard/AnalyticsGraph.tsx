@@ -6,60 +6,78 @@ import ApexCharts from "react-apexcharts";
 const AnalyticsGraph = () => {
   const [value, setValue] = React.useState<number>(10);
 
+
+  
   const chartOptions = {
     series: [{
       name: 'Inflation',
-      data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
+      data: [49 , 40, 30, 20, 30, 20, 30, 40, 60, 20],
     }],
     options: {
       chart: {
-        height: 350,
+        height: 150,
         type: 'bar',
+        toolbar: {
+          show: false
+        },
       },
       plotOptions: {
         bar: {
-          borderRadius: 10,
+          borderRadius: 13,
+          columnWidth: '40%',
+          endingShape: 'rounded',
           dataLabels: {
             position: 'top', // top, center, bottom
           },
         }
       },
+      
       dataLabels: {
-        enabled: true,
+        enabled: false,
         formatter: function (val : number) {
           return val + "%";
         },
         offsetY: -20,
         style: {
           fontSize: '12px',
-          colors: ["#304758"]
+          colors: ["grey"]
         }
+      },
+      grid: {
+        borderColor: 'gray', 
       },
       
       xaxis: {
-        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        position: 'top',
+        categories: [5 , 10, 15, 20, 25, 30, 35, 40, 45, 50 , 60],
+        tickPlacement: 'on',
+        position: 'bottom',
+        labels: {
+        style: {
+          colors: 'gray', // Set X-axis label color
+          fontSize: '12px',
+          fontFamily: 'Poppins'
+        },
+      },
         axisBorder: {
           show: false
         },
         axisTicks: {
           show: false
         },
-        crosshairs: {
-          fill: {
-            type: 'gradient',
-            gradient: {
-              colorFrom: '#D8E3F0',
-              colorTo: '#BED1E6',
-              stops: [0, 100],
-              opacityFrom: 0.4,
-              opacityTo: 0.5,
-            }
-          }
-        },
+       
         tooltip: {
           enabled: true,
+          offsetY: -35,
+          style: {
+            fontSize: '12px',
+            fontFamily: 'Poppins',
+            color: 'gray'
+          }
+          
         }
+      },
+      fill: {
+        type: 'solid'
       },
       yaxis: {
         axisBorder: {
@@ -68,21 +86,32 @@ const AnalyticsGraph = () => {
         axisTicks: {
           show: false,
         },
+        tickAmount: 3,
         labels: {
-          show: false,
+          show: true,
+          style: {
+            colors: 'gray', // Set Y-axis label color
+            fontSize: '12px',
+            fontFamily: 'Poppins'
+          },
           formatter: function (val : number) {
-            return val + "%";
+            return val / 10 + "K";
           }
         }
+        
       
       },
+      colors : ["#7393f9"],
+      
+
       title: {
         text: 'Monthly Inflation in Argentina, 2002',
         floating: true,
+
         offsetY: 330,
         align: 'center',
         style: {
-          color: '#444'
+          color: '#000',
         }
       }
     },
@@ -158,6 +187,13 @@ const AnalyticsGraph = () => {
           </Select>
         </FormControl>
       </Box>
+
+      <ApexCharts
+        options={chartOptions.options as any}
+        series={chartOptions.series}
+        type="bar"
+        height={200}
+      />
     </Box>
   );
 };

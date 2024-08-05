@@ -63,11 +63,11 @@ const Categories = () => {
               sx={{
                 bgcolor: item.iconButtonColor,
                 ":hover": { bgcolor: item.iconButtonColor },
-                height: "60px",
-                width: "60px",
+                height: "80px",
+                width: "80px",
               }}
             >
-              <item.icon  sx={{ color: item.iconColor , fontSize : "30px" }} />
+              <item.icon  sx={{ color: item.iconColor , fontSize : "36px" }} />
             </IconButton>
             <Typography variant="body2" fontFamily={"poppins"}>
               {item.title}
