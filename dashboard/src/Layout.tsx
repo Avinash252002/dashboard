@@ -7,7 +7,7 @@ const Layout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const isSm = useMediaQuery("(max-width: 900px)");
 
   return (
-    <Box sx={{ maxHeight: "100vh", height: "100%", margin: 0 , bgcolor: "#141316" }}>
+    <Box sx={{ maxHeight: "100vh", height: "100%", margin: 0 , bgcolor: "#141316" , overflowX: "hidden" }}>
       <Box
         sx={{
           position: "fixed",
@@ -17,7 +17,7 @@ const Layout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           width: "100%",
         }}
       >
-        {/* <Navbar /> */}
+        <Navbar />
       </Box>
 
       <Box sx={{ display: "flex", flexDirection: "row" }}>
