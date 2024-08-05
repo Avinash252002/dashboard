@@ -10,8 +10,10 @@ const AnalyticsGraph = () => {
   
   const chartOptions = {
     series: [{
-      name: 'Inflation',
+      name: 'Goal Completed',
       data: [49 , 40, 30, 20, 30, 20, 30, 40, 60, 20],
+
+
     }],
     options: {
       chart: {
