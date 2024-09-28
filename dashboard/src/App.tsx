@@ -153,7 +153,7 @@ function App() {
       <div id="editorjs" style={{ fontFamily: "sans-serif !" }}></div>
 
       <Box
-        sx={{ p: 20 }}
+        sx={{ px: 50 }}
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       ></Box>
     </div>
