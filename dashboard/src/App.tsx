@@ -9,6 +9,8 @@ import Table from "@editorjs/table";
 import Code from "@editorjs/code";
 import Image from "@editorjs/image";
 
+import { SimpleImage } from './SimpleImage/simple-image.jsx';
+
 import Quote from "@editorjs/quote";
 import Delimiter from "@editorjs/delimiter";
 
@@ -16,12 +18,15 @@ import edjsHTML from "editorjs-html";
 
 import { useEffect, useRef, useState } from "react";
 import { Box } from "@mui/material";
-import React from "react";
+
 
 function App() {
   const ejInstance = useRef<any>(null);
 
   const [htmlContent, setHtmlContent] = useState<string>("");
+
+
+  const [outputData, setOutputData] = useState("");
 
   function customBlockParser(block: any) {
     return <span>{block.data.text}</span>;
@@ -102,6 +107,9 @@ function App() {
     ],
   };
 
+
+
+
   const initEditor = () => {
     const editor = new EditorJS({
       holder: "editorjs",
@@ -118,6 +126,7 @@ function App() {
             preserveBlank: true, // Preserves blank paragraphs
           },
         },
+        image: SimpleImage,
 
         // table: Table,
         // code: Code,
@@ -135,6 +144,10 @@ function App() {
         editorToHTML(content);
       },
     });
+
+
+
+    
   };
 
   useEffect(() => {
@@ -147,6 +160,13 @@ function App() {
       ejInstance.current = null;
     };
   }, []);
+  const handleSave = async () => {
+    if (ejInstance.current) {
+      const savedData = await ejInstance.current.save();
+      setOutputData(JSON.stringify(savedData, null, 4)); // Update output with the saved data
+    }
+  };
+  
 
   return (
     <div style={{ justifyContent: "center", alignItems: "center" }}>
@@ -156,6 +176,12 @@ function App() {
         sx={{ px: 50 }}
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       ></Box>
+
+<button onClick={handleSave} id="save-button">
+        Save
+      </button>
+
+      <pre id="output">{outputData}</pre> 
     </div>
   );
 }
