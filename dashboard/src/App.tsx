@@ -39,7 +39,7 @@ function App() {
 
       // Find all <p>, heading elements (h4, h5, h6), and <li> elements
       const elements: any = Array.from(
-        tempDiv.querySelectorAll("p,h4,h5,h6,li,blockquote")
+        tempDiv.querySelectorAll("p,h1,h2,h3,h4,h5,h6,li,blockquote")
       );
 
 
@@ -50,7 +50,7 @@ function App() {
       // Iterate through each element
       elements.forEach((el: any) => {
         // Handle <p> and heading elements
-        if (["P", "H4", "H5", "H6", "BLOCKQUOTE"].includes(el.tagName)) {
+        if (["P", "H1", "H2", "H3", "H4", "H5", "H6", "BLOCKQUOTE"].includes(el.tagName)) {
           if (el.innerHTML.trim() !== "") {
             // If not empty, append two <br> tags
             el.innerHTML += "<br/><br/>";
