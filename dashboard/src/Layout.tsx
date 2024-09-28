@@ -13,7 +13,6 @@ const Layout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           position: "fixed",
           top: 0,
           zIndex: 1000,
-          bgcolor: "red",
           width: "100%",
         }}
       >

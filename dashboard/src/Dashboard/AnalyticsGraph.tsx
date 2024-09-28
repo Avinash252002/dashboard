@@ -29,7 +29,7 @@ const AnalyticsGraph = () => {
           columnWidth: '65%',
           endingShape: 'rounded',
           dataLabels: {
-            position: 'top', // top, center, bottom
+            position: 'top', 
           },
         }
       },
