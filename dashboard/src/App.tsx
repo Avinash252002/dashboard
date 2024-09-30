@@ -12,6 +12,7 @@ import List from "@editorjs/list";
 import { SimpleImage } from "../src/SimpleImage/simpleImage";
 import { Video } from "../src/SimpleImage/video";
 
+import DragDrop from "editorjs-drag-drop";
 import Quote from "@editorjs/quote";
 import Delimiter from "@editorjs/delimiter";
 
@@ -201,34 +202,43 @@ function App() {
       {
         type: "header",
         data: {
-          text: "This is my editor!",
+          text: "This is a title",
           level: 1,
+        },
+      },
+      {
+        type: "paragraph",
+        data: {
+          text: "", // Empty paragraph for the placeholder
         },
       },
     ],
   };
 
   const initEditor = () => {
-    const editor = new EditorJS({
+    const editor: any = new EditorJS({
       holder: "editorjs",
       onReady: () => {
         ejInstance.current = editor;
+        new DragDrop(editor);
       },
 
       tools: {
         header: Header,
         list: List,
         paragraph: {
-          inlineToolbar: true, // Enables the inline toolbar for the paragraph
+          inlineToolbar: ["bold", "italic"], // Enables the inline toolbar for the paragraph
           config: {
-            preserveBlank: true, // Preserves blank paragraphs
+            preserveBlank: true,
           },
         },
+
         video: Video,
         image: SimpleImage,
         quote: Quote,
         delimiter: Delimiter,
       },
+
       autofocus: true,
 
       data: DEFAULT_INITIAL_DATA,
@@ -295,7 +305,6 @@ function App() {
         fontFamily={"Poppins"}
         fontWeight={"bold"}
         textAlign={"center"}
-        
       >
         Preview for the Article
       </Typography>
