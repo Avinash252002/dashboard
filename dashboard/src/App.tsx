@@ -18,7 +18,7 @@ import Delimiter from "@editorjs/delimiter";
 import edjsHTML from "editorjs-html";
 
 import { useEffect, useRef, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 function App() {
   const ejInstance = useRef<any>(null);
@@ -195,8 +195,6 @@ function App() {
     return data;
   }
 
-  console.log(htmlToEditorJSON(htmlContent), "htmlToEditorJSON");
-
   const DEFAULT_INITIAL_DATA = {
     time: new Date().getTime(),
     blocks: [
@@ -262,7 +260,6 @@ function App() {
 
         const paragraphText = secondBlock.data.text || "";
         if (paragraphText.length > 350) {
-          console.log(paragraphText.slice(0, 350));
           secondBlock.data.text = paragraphText.slice(0, 350);
           editor.blocks.render(content);
           alert("The paragraph has been limited to 350 characters."); // Notify the user
@@ -287,11 +284,21 @@ function App() {
     setOutputData(htmlToEditorJSON(htmlContent));
   };
 
-  console.log(outputData, "outputData");
-
   return (
     <div style={{ justifyContent: "center", alignItems: "center" }}>
       <div id="editorjs" style={{ fontFamily: "sans-serif" }}></div>
+
+      <Typography
+        variant="h5"
+        mb={5}
+        color={"darkolivegreen"}
+        fontFamily={"Poppins"}
+        fontWeight={"bold"}
+        textAlign={"center"}
+        
+      >
+        Preview for the Article
+      </Typography>
 
       <Box
         sx={{ px: 50 }}
