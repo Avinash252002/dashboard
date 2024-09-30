@@ -27,12 +27,11 @@ function App() {
 
   const [outputData, setOutputData] = useState("");
 
-  
-
   const customParser = {
-    video: (block : any) => {
+    video: (block: any) => {
       let url = block.data.url;
-      const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
+      const regex =
+        /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
       const match = url.match(regex);
       if (match) {
         const videoId = match[1];
@@ -40,15 +39,11 @@ function App() {
       }
       return `<iframe width="100%" height="315" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     },
-
-
-
-
   };
 
   const edjsParser = edjsHTML({
     custom: customParser,
-    video : customParser.video
+    video: customParser.video,
   });
 
   function processParagraphsAndLists(htmlArray: any) {
@@ -129,13 +124,20 @@ function App() {
 
       // Handle paragraph and heading elements
       else if (
-        ["P", "H1", "H2", "H3", "H4", "H5", "H6", "BLOCKQUOTE" , "IFRAME"].includes(
-          el.tagName
-        )
+        [
+          "P",
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6",
+          "BLOCKQUOTE",
+          "IFRAME",
+        ].includes(el.tagName)
       ) {
         let innerText = el.innerHTML.replace(/<br\/?>/g, "").trim(); // Remove <br> tags
         let blockType = el.tagName.toLowerCase();
-        
 
         // Detect if it's a blockquote or heading
         if (blockType === "blockquote") {
@@ -161,17 +163,14 @@ function App() {
               level: 1,
             },
           });
-        }  else if(blockType === "iframe"){ 
-
+        } else if (blockType === "iframe") {
           data.push({
             type: "video",
             data: {
               url: el.getAttribute("src"),
             },
           });
-          
-        }
-        else {
+        } else {
           data.push({
             type: "paragraph",
             data: {
@@ -208,12 +207,6 @@ function App() {
           level: 1,
         },
       },
-      {
-        type: "paragraph",
-        data: {
-          text: "",
-        },
-      },
     ],
   };
 
@@ -244,7 +237,36 @@ function App() {
       onChange: async () => {
         let content = await editor.saver.save();
 
-        console.log(content, "content from ediotr");
+        const firstBlock = content.blocks[0];
+        const secondBlock = content.blocks[1];
+        if (
+          !(
+            firstBlock &&
+            firstBlock.type === "header" &&
+            firstBlock.data.level === 1
+          )
+        ) {
+          // alert("The first block must be a Heading 1 (H1).");
+          editor.clear();
+          editor.blocks.render(DEFAULT_INITIAL_DATA);
+          return;
+        }
+
+        if (!(secondBlock && secondBlock.type === "paragraph")) {
+          alert("The meta description must be a paragragh(H2).");
+
+          editor.clear();
+          editor.blocks.render(DEFAULT_INITIAL_DATA);
+          return;
+        }
+
+        const paragraphText = secondBlock.data.text || "";
+        if (paragraphText.length > 350) {
+          console.log(paragraphText.slice(0, 350));
+          secondBlock.data.text = paragraphText.slice(0, 350);
+          editor.blocks.render(content);
+          alert("The paragraph has been limited to 350 characters."); // Notify the user
+        }
 
         editorToHTML(content);
       },
@@ -261,11 +283,11 @@ function App() {
       ejInstance.current = null;
     };
   }, []);
-  const handleSave =  () => {
+  const handleSave = () => {
     setOutputData(htmlToEditorJSON(htmlContent));
   };
 
-  console.log(outputData , "outputData");
+  console.log(outputData, "outputData");
 
   return (
     <div style={{ justifyContent: "center", alignItems: "center" }}>
@@ -280,7 +302,7 @@ function App() {
         Save
       </button>
 
-      <pre id="output">{JSON.stringify(outputData , null , 2)}</pre>
+      <pre id="output">{JSON.stringify(outputData, null, 2)}</pre>
     </div>
   );
 }
