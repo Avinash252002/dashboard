@@ -201,7 +201,7 @@ function App() {
       {
         type: "header",
         data: {
-          text: "This is my awesome editor!",
+          text: "This is my editor!",
           level: 1,
         },
       },
