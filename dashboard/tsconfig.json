@@ -1,5 +1,15 @@
 {
   "files": [],
+  "compilerOptions": {
+
+    "baseUrl": "./",
+    "paths": {
+     "@SimpleImage/*": ["src/SimpleImage/*"]
+   },
+   "allowJs": true,
+    
+  },
+
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -7,6 +17,7 @@
     {
       "path": "./tsconfig.node.json"
     },
+    
     
   ],
 }

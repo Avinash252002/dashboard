@@ -7,6 +7,11 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": "./",
+     "paths": {
+      "@SimpleImage/*": ["src/SimpleImage/*"]
+    },
+    "allowJs": true,
   
 
     /* Bundler mode */
@@ -27,5 +32,6 @@
   "include": ["src" , 
    "src/**/*.ts",
   "src/**/*.tsx",
-  "src/**/*.d.ts"]
+  "src/**/*.d.ts"],
+  
 }
