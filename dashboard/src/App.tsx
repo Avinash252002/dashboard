@@ -261,12 +261,11 @@ function App() {
       ejInstance.current = null;
     };
   }, []);
-  const handleSave = async () => {
-    if (ejInstance.current) {
-      const savedData = await ejInstance.current.save();
-      setOutputData(JSON.stringify(savedData, null, 4)); // Update output with the saved data
-    }
+  const handleSave =  () => {
+    setOutputData(htmlToEditorJSON(htmlContent));
   };
+
+  console.log(outputData , "outputData");
 
   return (
     <div style={{ justifyContent: "center", alignItems: "center" }}>
@@ -281,7 +280,7 @@ function App() {
         Save
       </button>
 
-      <pre id="output">{outputData}</pre>
+      <pre id="output">{JSON.stringify(outputData , null , 2)}</pre>
     </div>
   );
 }
