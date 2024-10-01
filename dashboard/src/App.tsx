@@ -9,17 +9,16 @@ import List from "@editorjs/list";
 // import Code from "@editorjs/code";
 // import Image from "@editorjs/image";
 
-import { SimpleImage } from "../src/SimpleImage/simpleImage";
-import { Video } from "../src/SimpleImage/video";
-
+import { SimpleImage } from "./CustomTools/simpleImage";
+import { Video } from "./CustomTools/video";
 import DragDrop from "editorjs-drag-drop";
 import Quote from "@editorjs/quote";
 import Delimiter from "@editorjs/delimiter";
-
 import edjsHTML from "editorjs-html";
-
 import { useEffect, useRef, useState } from "react";
-import { Box, Typography } from "@mui/material";
+
+
+import MultiRangeSlider from "./RangeSlider/RangeSlider";
 
 function App() {
   const ejInstance = useRef<any>(null);
@@ -215,6 +214,10 @@ function App() {
     ],
   };
 
+
+
+
+
   const initEditor = () => {
     const editor: any = new EditorJS({
       holder: "editorjs",
@@ -227,11 +230,12 @@ function App() {
         header: Header,
         list: List,
         paragraph: {
-          inlineToolbar: ["bold", "italic"], // Enables the inline toolbar for the paragraph
+          inlineToolbar: true, // Enables the inline toolbar for the paragraph
           config: {
             preserveBlank: true,
           },
         },
+
 
         video: Video,
         image: SimpleImage,
@@ -290,35 +294,49 @@ function App() {
       ejInstance.current = null;
     };
   }, []);
+
+
+
+
+
+
   const handleSave = () => {
     setOutputData(htmlToEditorJSON(htmlContent));
   };
 
   return (
-    <div style={{ justifyContent: "center", alignItems: "center" }}>
-      <div id="editorjs" style={{ fontFamily: "sans-serif" }}></div>
+    // <div style={{ justifyContent: "center", alignItems: "center" }}>
+    //   <div id="editorjs" style={{ fontFamily: "sans-serif" }}></div>
 
-      <Typography
-        variant="h5"
-        mb={5}
-        color={"darkolivegreen"}
-        fontFamily={"Poppins"}
-        fontWeight={"bold"}
-        textAlign={"center"}
-      >
-        Preview for the Article
-      </Typography>
+    //   <Typography
+    //     variant="h5"
+    //     mb={5}
+    //     color={"darkolivegreen"}
+    //     fontFamily={"Poppins"}
+    //     fontWeight={"bold"}
+    //     textAlign={"center"}
+    //   >
+    //     Preview for the Article
+    //   </Typography>
 
-      <Box
-        sx={{ px: 50 }}
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      ></Box>
+    //   <Box
+    //     sx={{ px: 50 }}
+    //     dangerouslySetInnerHTML={{ __html: htmlContent }}
+    //   ></Box>
 
-      <button onClick={handleSave} id="save-button">
-        Save
-      </button>
+    //   <button onClick={handleSave} id="save-button">
+    //     Save
+    //   </button>
 
-      <pre id="output">{JSON.stringify(outputData, null, 2)}</pre>
+    //   <pre id="output">{JSON.stringify(outputData, null, 2)}</pre>
+    // </div>
+    <div>
+ <MultiRangeSlider
+      min={0}
+      max={1000}
+      onChange={({ min, max } : {min: number, max: number}) => console.log(`min = ${min}, max = ${max}`)}
+    />
+    
     </div>
   );
 }

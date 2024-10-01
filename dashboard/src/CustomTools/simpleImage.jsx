@@ -7,16 +7,13 @@ export class SimpleImage {
   }
 
   render() {
-    // Create a wrapper div to hold the input and image preview
     const wrapper = document.createElement('div');
-
-    // Create input element for file selection
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = 'image/*'; // Restrict to image files only
+    input.accept = 'image/*';
     input.style.display = 'block';
 
-    // Create an img element to show the selected image
+
     const imgPreview = document.createElement('img');
     imgPreview.style.maxWidth = '100%'; // Set max width for the image
     imgPreview.style.display = 'none'; // Initially hidden until the image is selected
@@ -34,7 +31,7 @@ export class SimpleImage {
       }
     });
 
-    // Append input and image preview to the wrapper
+    
     wrapper.appendChild(input);
     wrapper.appendChild(imgPreview);
 

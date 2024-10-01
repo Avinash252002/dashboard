@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "baseUrl": "./",
      "paths": {
-      "@SimpleImage/*": ["src/SimpleImage/*"]
+      "@SimpleImage/*": ["src/CustomTools/*"]
     },
     "allowJs": true,
   
